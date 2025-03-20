@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Edit Author</h2>
+    <form [formGroup]="authorForm" (ngSubmit)="updateAuthor()">
+      <label for="name">Author Name</label>
+      <input id="name" type="text" formControlName="name">
+      <br>
+      <label for="place">Author Place</label>
+      <input id="place" type="text" formControlName="place">
+      
+      <button mat-button type="submit" color="primary">Update</button>
+      <button mat-button color="warn" routerLink="/authors">Cancel</button>
+    </form>
+
+  </div>
+  
+ 

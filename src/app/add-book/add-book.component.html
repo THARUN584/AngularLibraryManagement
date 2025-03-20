@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Add Book</h2>
+    
+    <form [formGroup]="bookForm" (ngSubmit)="addBook()">
+      <!-- Book Name -->
+      <mat-form-field appearance="outline">
+        <mat-label>Book Name</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>
+  
+      <!-- Book Genre -->
+      <mat-form-field appearance="outline">
+        <mat-label>Genre</mat-label>
+        <input matInput formControlName="genere" required>
+      </mat-form-field>
+  
+      <!-- Select Author -->
+      <mat-form-field appearance="outline">
+        <mat-label>Author-id</mat-label>
+        <mat-select formControlName="authorId" required>
+          <mat-option *ngFor="let author of authors" [value]="author.id">
+            {{ author.name }}-{{author.id}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <!-- Submit Button -->
+      <button mat-raised-button color="primary" type="submit" [disabled]="bookForm.invalid">
+      Submit
+      </button>
+    </form>
+  </div>
+
+  <a routerLink="/books">back</a>

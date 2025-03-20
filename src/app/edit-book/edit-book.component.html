@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Edit Book</h2>
+    <form [formGroup]="bookForm" (ngSubmit)="updateBook()">
+      
+      <label>Book Name:</label>
+      <input type="text" formControlName="name" required />
+  
+      <label>Genre:</label>
+      <input type="text" formControlName="genere" required />
+  
+      <label>Author:</label>
+      <select formControlName="authorId">
+        <option *ngFor="let author of authors" [value]="author.id">{{ author.name }}</option>
+      </select>
+  
+      <button type="submit" [disabled]="bookForm.invalid">Update Book</button>
+      <button mat-button color="warn" routerLink="/books">Cancel</button>
+    </form>
+  </div>
+  
+
+  <a routerLink="/add-book">back</a>
