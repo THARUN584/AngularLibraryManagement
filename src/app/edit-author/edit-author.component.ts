@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthorService } from '../services/author.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
- // ✅ Correct path
+
 
 @Component({
   selector: 'app-edit-author',
@@ -12,13 +12,13 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./edit-author.component.css'],
   imports: [
     CommonModule,
-    ReactiveFormsModule // Add this
+    ReactiveFormsModule 
   ],
 })
 
 export class EditAuthorComponent implements OnInit {
   authorForm: FormGroup;
-  authorId!: number; // ✅ Use `!` to indicate it will be assigned later.
+  authorId!: number; 
 
   constructor(
     private route: ActivatedRoute,
@@ -28,12 +28,12 @@ export class EditAuthorComponent implements OnInit {
   ) {
     this.authorForm = this.fb.group({
       name: [''],
-      place: [''], // ✅ Added place field
+      place: [''], 
     });
   }
 
   ngOnInit(): void {
-    // ✅ Ensure authorId is a valid number
+
     this.authorId = Number(this.route.snapshot.paramMap.get('id'));
     if (isNaN(this.authorId)) {
       console.error('Invalid author ID');
@@ -41,13 +41,13 @@ export class EditAuthorComponent implements OnInit {
       return;
     }
 
-    // ✅ Fetch Author by ID
+
     this.authorService.getAuthorById(this.authorId).subscribe(
       (response) => {
         if (response && response.data) {
           this.authorForm.patchValue({
             name: response.data.name,
-            place: response.data.place, // ✅ Set place field if available
+            place: response.data.place, 
           });
         }
       },
@@ -57,7 +57,7 @@ export class EditAuthorComponent implements OnInit {
     );
   }
 
-  // ✅ Update Author
+
   updateAuthor() {
     this.authorService.updateAuthor(this.authorId, this.authorForm.value).subscribe(
       () => {

@@ -1,0 +1,103 @@
+/* Container styles */
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Form Styling */
+.edit-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+/* Heading Styling */
+h2 {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Input and Select Fields */
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ff7e5f;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #ff5733;
+    box-shadow: 0 0 8px rgba(255, 87, 51, 0.6);
+}
+
+/* Buttons Styling */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.update-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.update-btn:hover {
+    background: #388E3C;
+}
+
+.cancel-btn {
+    background: #ff4b5c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cancel-btn:hover {
+    background: #d32f2f;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'; 
 import { Router } from '@angular/router';  
 import { FormsModule } from '@angular/forms'; 
+import { Book } from '../../model/book.model';
 
 @Component({
   selector: 'app-authors',
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AuthorsComponent implements OnInit {
   authors: any[] = [];
+
   displayedColumns: string[] = ['id', 'name', 'actions'];
   filteredAuthors: any[] = []; 
   searchText: string = '';
@@ -65,6 +67,11 @@ export class AuthorsComponent implements OnInit {
     );
   }
   
+  getBookIds(author: any): string {
+    return author.books.length > 0 
+      ? author.books.map((book: { id: number }) => book.id).join(', ') 
+      : 'No Books';
+  }
   
   
 }

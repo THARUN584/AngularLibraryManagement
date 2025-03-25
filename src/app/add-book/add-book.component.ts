@@ -8,13 +8,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormField, MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
   styleUrls: ['./add-book.component.css'],
   standalone: true,
-      imports: [CommonModule, MatButtonModule, MatButtonModule, RouterModule,FormsModule,ReactiveFormsModule,MatInputModule,MatOptionModule,MatSelectModule]
+      imports: [CommonModule, MatButtonModule, MatButtonModule, RouterModule,FormsModule,ReactiveFormsModule,MatInputModule,MatOptionModule,MatSelectModule,MatCardModule]
 })
 export class AddBookComponent implements OnInit {
   bookForm!: FormGroup;

@@ -1,3 +1,105 @@
-div{
-    background-color: aqua;
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.author-container {
+    width: 400px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.author-container:hover {
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+
+h2 {
+    color: #333;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #ff5e62;
+    box-shadow: 0px 0px 8px rgba(255, 94, 98, 0.5);
+}
+
+button {
+    width: 100%;
+    background: #ff5e62;
+    color: white;
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 94, 98, 0.2);
+}
+
+button:hover {
+    background: #e04a50;
+    box-shadow: 0px 6px 12px rgba(255, 94, 98, 0.3);
+}
+
+
+@media (max-width: 600px) {
+    .author-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 16px;
+    }
 }

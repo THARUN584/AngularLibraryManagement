@@ -85,6 +85,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { Book } from '../../model/book.model';
 
 @Component({
   selector: 'app-books',
@@ -116,20 +117,31 @@ export class BooksComponent implements OnInit {
     this.loadBooks();
   }
 
+  // loadBooks() {
+  //   this.bookService.getBooks().subscribe(
+  //     (response) => {
+  //       if (response && response.data) {
+  //         this.books = response.data;
+  //         this.dataSource.data = response.data;
+  //       }
+  //     },
+  //     (error) => {
+  //       console.error("Error fetching books:", error);
+  //     }
+  //   );
+  // }
   loadBooks() {
-    this.bookService.getBooks().subscribe(
-      (response) => {
-        if (response && response.data) {
-          this.books = response.data;
-          this.dataSource.data = response.data;
-        }
-      },
-      (error) => {
-        console.error("Error fetching books:", error);
-      }
-    );
+    this.bookService.getBooks().subscribe(response => {
+      this.books = (response.data as Book[]).map(book => ({
+        id: book.id,
+        name: book.name,
+        genere: book.genere,
+        author: book.author ? book.author.name : 'Unknown'  // ✅ Handle missing author
+      }));
+      this.dataSource.data = this.books;
+    });
   }
-
+  
  
   
 
@@ -172,21 +184,43 @@ export class BooksComponent implements OnInit {
   
 
 
+  // deleteBook(bookId: number): void {
+  //   if (confirm("Are you sure you want to delete this book?")) {
+  //     this.bookService.deleteBook(bookId).subscribe(
+  //       () => {
+  //         this.books = this.books.filter(book => book.id !== bookId);
+  //         this.dataSource.data = this.books;
+  //         alert("Book deleted successfully!");
+  //       },
+  //       (error) => {
+  //         console.error("Error deleting book:", error);
+  //         alert("Failed to delete book.");
+  //       }
+  //     );
+  //   }
+  // }
   deleteBook(bookId: number): void {
+    if (!bookId) {
+      console.error("❌ Invalid bookId:", bookId);
+      alert("Book ID is missing. Cannot delete.");
+      return;
+    }
+  
     if (confirm("Are you sure you want to delete this book?")) {
       this.bookService.deleteBook(bookId).subscribe(
         () => {
           this.books = this.books.filter(book => book.id !== bookId);
           this.dataSource.data = this.books;
-          alert("Book deleted successfully!");
+          alert("✅ Book deleted successfully!");
         },
         (error) => {
-          console.error("Error deleting book:", error);
-          alert("Failed to delete book.");
+          console.error("❌ Error deleting book:", error);
+          alert("❌ Failed to delete book.");
         }
       );
     }
   }
+  
 
   editBook(bookId: number): void {
     console.log("Navigating to Edit Book Page with ID:", bookId); // Debugging Log

@@ -1,36 +1,18 @@
-<div class="container">
+<div class="author-container">
   <h2>Add Author</h2>
+  
   <form [formGroup]="authorForm" (ngSubmit)="addAuthor()">
     
-    <table border="2.0">
+    <div class="form-group">
+      <label for="name">Author Name:</label>
+      <input id="name" formControlName="name" required placeholder="Enter author name..."/>
+    </div>
 
-<tr>
-  <td><label for="name">Author Name:</label></td>
-  <td>  <input id="name" formControlName="name" required /></td>
-</tr>
-<tr>
-  <td><label for="place">Place:</label></td>
-  <td>  <input id="place" formControlName="place" required /></td>
-</tr>
-<tr>
- 
-<td><button type="submit" [disabled]="authorForm.invalid">Submit</button></td>
+    <div class="form-group">
+      <label for="place">Place:</label>
+      <input id="place" formControlName="place" required placeholder="Enter author place..."/>
+    </div>
 
-</tr>
-    </table>
-    
-    <!-- <label for="name">Author Name:</label>
-    <input id="name" formControlName="name" required />
-<br>
-    <label for="place">Place:</label>
-    <input id="place" formControlName="place" required />
-
-<br> -->
-    <!-- <button type="submit" [disabled]="authorForm.invalid">Submit</button> -->
+    <button type="submit" [disabled]="authorForm.invalid">Submit</button>
   </form>
 </div>
-
-<br>
-
-
-
